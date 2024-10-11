@@ -1,0 +1,30 @@
+body{
+    background-color:rgb(119, 169, 244) ;
+}
+h1{
+    color: #ffff00;
+    font-family: Arial;      /* A fonte precisa esta intalada no meu pc */
+    font-size: 50px;
+    text-decoration:overline #ff0000;
+}
+
+h2{
+    font-size: 35px;
+    font-style: arial;
+    font-weight:normal;  /* NORMAL ou NEGRITO*/
+}
+
+h3{
+    font-size:25px;
+    text-transform: uppercase;
+    text-align:center;    /* center  left  right   justify */
+    text-decoration: underline;
+    background-color:aqua;
+}
+
+.parg1{
+    text-indent: 58px;      /* indentação do paragrafo*/
+    font-size: 15px;
+    color: #000000;
+    /* font-variant: small-caps; EX:  Asss As - todas maiusculas */
+}
