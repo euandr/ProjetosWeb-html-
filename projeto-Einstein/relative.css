@@ -1,0 +1,546 @@
+/*   Aprender sobre variaveis no CSS
+  fazer variaveis com todas as cores que usarei no abaixo */
+:root {
+    --prim: #2c3e50;
+    --seg: #3498db;
+    --mouseLink: #e74c3c;
+    --text: #2c3e50;
+    --fundão: #ecf0f1;
+    --backgrHead: #2c3e50;
+    --citações: #f8f9fa;
+    font-size: 16px;
+}
+
+
+/* ======================================
+             Estilos Base
+   ====================================== */
+
+body {
+    margin: 0;
+    font-family: 'Montserrat';
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--fundão);
+}
+
+.in_tudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+header {
+    background: var(--backgrHead);
+    color: white;
+    padding: 32px 0;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* laranja ao passar mouse sobre um link */
+a:hover {
+    color: var(--mouseLink);
+}
+
+
+blockquote {
+    background: var(--citações);
+    border-left: 4px solid var(--seg);
+    padding: 16px;
+    margin: 24px 0;
+    font-style: italic;
+}
+
+ul {
+    background: var(--citações);
+    padding: 24px 32px;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: var(--seg);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+mark {
+    background-color: rgba(52, 152, 219, 0.2);
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+
+
+
+/* ======================================
+             Formatação de Texto
+   ====================================== */
+
+h1 {
+    font-size: 56px;
+    margin: 0;
+    color: white;
+    font-family: "montserrat";
+}
+
+h2 {
+    color: var(--prim);
+    border-bottom: 2px solid var(--seg);
+    padding-bottom: 8px;
+    margin-top: 32px;
+}
+
+h3 {
+    color: var(--seg);
+    margin-top: 24px;
+}
+
+p {
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+.sub_titulo {
+    margin-left: 150px;
+}
+
+.ultimo_texto {
+    margin-top: 25px;
+}
+
+/* ======================================
+             Midia
+   ====================================== */
+img {
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.1);
+    margin: 16px 0;
+}
+
+.galeriaIMG {
+    display: flex;
+    justify-content: center;
+    gap: 56px;
+    height:400px; 
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.img3 {
+    width: 700px;
+}
+
+
+h2 i {
+    color: var(--seg);
+    margin-right: 8px;
+    font-size: 22px;
+}
+
+/*================= videos ================*/
+.video-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin: 32px 0;
+    padding: 16px;
+}
+
+.area_video {
+    background: var(--citações);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* animação de baixo para cima */
+.area_video:hover {
+    transform: translateY(-5px);
+}
+
+.area_video iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================================
+             Rodapé da página
+   ====================================== */
+
+footer {
+    background: var(--prim);
+    color: white;
+    padding: 48px 0 16px 0;
+    margin-top: 64px;
+}
+
+.area_rodape {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.secao_rodape h3 {
+    color: var(--seg);
+    font-size: 21px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.secao_rodape h3 i {
+    font-size: 19px;
+}
+
+.secao_rodape p {
+    color: #ecf0f1;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.secao_rodape ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+}
+
+.secao_rodape ul li {
+    margin-bottom: 13px;
+}
+
+.secao_rodape ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.secao_rodape ul li a:hover {
+    color: var(--seg);
+    transform: translateX(5px);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+/* ======================================
+             Barra superior (acima do header)
+   ====================================== */
+
+.barra_superior {
+    background: linear-gradient(to right, var(--prim), #0c1c2b);
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.conteudo_barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/*================= contato - email ================*/
+.contato {
+    display: flex;
+    gap: 32px;
+}
+
+.contato a {
+    color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.contato a:hover {
+    color: var(--seg);
+    transform: translateY(-5px);
+}
+
+
+
+/*================= redes sociais ================*/
+.social-links {
+    display: flex;
+    gap: 19px;
+}
+
+.social-links a {
+    color: #ecf0f1;
+    font-size: 19px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.social-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--seg);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.social-links a:hover {
+    color: var(--seg);
+    transform: translateY(-5px);
+}
+/* animação de linha de baixo */
+.social-links a:hover::after { width: 100%; }
+
+
+/* ======================================
+             Header
+   ====================================== */
+
+.intro-section {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    margin: 32px 0 64px 0;
+    align-items: center;
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.texto-enfase-Inicial {
+    font-size: 21px;
+    line-height: 1.6;
+    color: var(--prim);
+    font-weight: 500;
+    border-left: 4px solid var(--seg);
+    padding-left: 24px;
+    margin: 0;
+}
+
+.intro-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text);
+    margin: 0;
+    text-align: justify;
+}
+
+.einstein-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease;
+}
+
+.einstein-image:hover {
+    transform: translateY(-5px);
+}
+
+.einstein-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.einstein-image:hover img {
+    transform: scale(1.02);
+}
+
+.einstein-image figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 32px 24px 24px;
+    color: white;
+    text-align: center;
+}
+
+.einstein-image figcaption p {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.caption-sub {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    margin-top: 8px !important;
+    opacity: 0.9;
+}
+
+/* ======================================
+             Linha do Tempo
+   ====================================== */
+.timeline {
+    margin: 64px 0;
+    padding: 32px;
+    background: var(--citações);
+    border-radius: 16px;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+
+
+.ano {
+    display: flex;
+    background: var(--prim);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.evento {
+    flex: 1;
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.evento h3 {
+    margin: 0 0 8px 0;
+    color: var(--prim);
+}
+
+.evento p {
+    margin: 0;
+}
+
+
+
+/* ======================================
+             Comprovação Experimental
+   ====================================== */
+.secao_comprovacao {
+    margin: 64px 0;
+}
+
+.caixa_comprovacao {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    margin-top: 32px;
+}
+
+.texto p {
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.destaque {
+    background: linear-gradient(135deg, var(--prim), var(--seg));
+    color: white;
+    padding: 32px;
+    border-radius: 16px;
+    margin: 32px 0;
+    text-align: center;
+}
+
+.destaque p {
+    font-size: 19px;
+    font-style: italic;
+    margin: 0;
+}
+
+.imagem_eclipse {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.imagem_eclipse img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+.imagem_eclipse figcaption {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    
+    padding: 32px 24px 24px;
+    color: white;
+    text-align: center;
+}
+
+.imagem_eclipse figcaption p {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.imagem_eclipse figcaption .caption-sub {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    margin-top: 8px !important;
+    opacity: 0.9;
+}
+
+.resultado {
+    font-size: 19px;
+    line-height: 1.8;
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(to right, rgba(52, 152, 219, 0.1), transparent);
+    border-left: 4px solid var(--seg);
+    border-radius: 0 8px 8px 0;
+}
+
