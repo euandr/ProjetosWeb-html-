@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body>
+    <header>
+        <!-- <img src="./assets/logo.png" alt="logo esportes"> -->
+         <img src="./assets/l.png" alt="Logo esportes">
+    </header>
+
+    <main class="container">
+        <section>
+            <div>
+                <h2>Assistente de Meta</h2>
+                <p>Pergute sobre estratégias, builds e muito mais para seus jogos!</p>
+                <form id="form">
+                    <input id="apiKey" type="password" placeholder="Informe API KEY do Gemini">
+
+                    <select id="gameSelection" required>
+                        <option value=""> Selecione um jogo</option>
+                        <option value="valorant">Valorant</option>
+                        <option value="minecraft">Minecraft</option>
+                        <option value="lol">League of Legends</option>
+                    </select>
+
+                    <input id="questionInput" type="text"
+                        placeholder="Ex: Qual a melhor build para iniciar no Valorant?" required>
+
+                    <button id="askButton" type="submit" required> perguntar</button>
+                </form>
+
+                <div id="IaResponse" class="hidden">
+                    <div class="response-content">
+
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </main>
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+
+    <script src="./scripts.js"> </script>
+</body>
+
+</html>
+
+<!-- # muito top -->
