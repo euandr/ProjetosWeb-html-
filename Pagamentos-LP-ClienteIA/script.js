@@ -3,13 +3,17 @@ function copyPixKey() {
     const pixKeyInput = document.getElementById('pixKey');
     const copyBtn = document.querySelector('.copy-btn');
     
+    if (!pixKeyInput) {
+        console.error('Elemento pixKey não encontrado');
+        return;
+    }
+    
     // Seleciona o texto
     pixKeyInput.select();
     pixKeyInput.setSelectionRange(0, 99999); // Para dispositivos móveis
     
-    // Copia o texto
-    navigator.clipboard.writeText(pixKeyInput.value).then(() => {
-        // Feedback visual
+    // Função para mostrar feedback visual
+    function showSuccess() {
         const originalText = copyBtn.innerHTML;
         copyBtn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
         copyBtn.style.background = '#27ae60';
@@ -19,11 +23,38 @@ function copyPixKey() {
             copyBtn.innerHTML = originalText;
             copyBtn.style.background = '#feca57';
         }, 2000);
-    }).catch(err => {
-        console.error('Erro ao copiar: ', err);
+    }
+    
+    // Tenta usar navigator.clipboard primeiro (moderno)
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pixKeyInput.value).then(() => {
+            showSuccess();
+        }).catch(err => {
+            console.error('Erro com navigator.clipboard: ', err);
+            // Fallback para método antigo
+            fallbackCopy();
+        });
+    } else {
         // Fallback para navegadores mais antigos
-        document.execCommand('copy');
-    });
+        fallbackCopy();
+    }
+    
+    // Método fallback usando document.execCommand
+    function fallbackCopy() {
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                showSuccess();
+            } else {
+                // Último recurso: mostrar a chave para o usuário copiar manualmente
+                alert('Chave PIX: ' + pixKeyInput.value + '\n\nCopie manualmente a chave acima.');
+            }
+        } catch (err) {
+            console.error('Erro com execCommand: ', err);
+            // Último recurso: mostrar a chave para o usuário copiar manualmente
+            alert('Chave PIX: ' + pixKeyInput.value + '\n\nCopie manualmente a chave acima.');
+        }
+    }
 }
 
 // Animação de entrada para elementos
@@ -209,6 +240,12 @@ document.addEventListener('DOMContentLoaded', () => {
     animateOnScroll();
     initHoverEffects();
     initSmoothScroll();
+    
+    // Adiciona event listener para o botão de copiar PIX (backup)
+    const copyBtn = document.querySelector('.copy-btn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', copyPixKey);
+    }
     
     // Anima as estatísticas quando o hero estiver visível
     const heroObserver = new IntersectionObserver((entries) => {
