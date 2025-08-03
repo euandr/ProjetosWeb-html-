@@ -18,6 +18,9 @@
     <!-- icones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Teoria da Relatividade - Um Guia Completo</title>
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000000">
 </head>
 
 <body>
@@ -269,6 +272,14 @@
             <p class="ultimo_texto">&copy; 2025 Teoria da Relatividade - Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log("Service Worker registrado!"));
+        }
+    </script>
+
 </body>
 
 </html>
