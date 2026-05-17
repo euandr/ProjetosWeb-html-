@@ -1,0 +1,13 @@
+Artificial intelligence (AI) is changing the way humans explore space. In recent years, scientists have developed powerful AI systems that have helped NASA and other space agencies solve complex problems faster than ever before.
+
+1. AI as an assistant in space missions
+One important use of AI in space is to assist astronauts during long-duration missions. In 2019, NASA unveiled CIMON—an AI assistant that operated aboard the International Space Station. CIMON answered questions, detected spacecraft problems, and helped astronauts complete experiments. Scientists designed it to reduce stress and increase safety during missions far from Earth.
+
+2. AI for navigation and data analysis
+AI has also transformed how spacecraft navigate and how scientists analyze data. In 2018, a team from NASA and Intel used AI to help rovers navigate the surface of the Moon and Mars without human control. Additionally, Earth observation satellites collect enormous amounts of data daily. AI processes this information quickly and accurately—a task that would take human scientists months to complete manually.
+
+3. AI for Space Safety and Debris Monitoring
+
+Another important application of AI is protecting spacecraft from space debris. Thousands of pieces of old satellites and rocket fragments orbit Earth at high speeds, creating serious risks for missions. AI systems can predict potential collisions, monitor hazardous objects, and calculate safer routes for satellites and spacecraft. This technology helps space agencies avoid accidents and protect astronauts and equipment in orbit.
+
+As space missions become longer and more complex, AI will play an increasingly important role. The future of space exploration is not just human—it's collaboration between humans and machines.

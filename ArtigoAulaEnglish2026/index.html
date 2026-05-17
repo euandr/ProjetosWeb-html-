@@ -1,0 +1,1359 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Conversation - Rigor acadêmico, estilo jornalístico</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        color: #333;
+      }
+
+      /* Header */
+      header {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #f0f0f0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 100;
+      }
+
+      .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 40px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .header-top-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .home-icon {
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+        display: flex;
+        align-items: center;
+      }
+
+      iconify-icon {
+        font-size: inherit;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .header-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+      }
+
+      .logo-section {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo {
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      .tagline-small {
+        font-size: 12px;
+        color: #666;
+        margin-top: 2px;
+      }
+
+      .logo-red {
+        color: #c41e3a;
+      }
+
+      .language-badge {
+        background-color: #333;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .language-selector {
+        background-color: transparent;
+        border: 1px solid #ddd;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        color: #666;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .brasil-text {
+        color: #ff6600;
+        font-weight: 600;
+      }
+
+      /* Search Bar */
+      .search-container {
+        flex: 1;
+        max-width: 350px;
+        position: relative;
+      }
+
+      .search-box {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      .search-box:focus {
+        border-color: #c41e3a;
+      }
+
+      .search-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      /* Header Right */
+      .header-right {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+      }
+
+      .header-link {
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .header-link:hover {
+        color: #c41e3a;
+      }
+
+      /* Hero Section */
+      .hero {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.1) 100%
+          ),
+          url("file-20210120-15-ni8svg.avif") center/cover;
+        height: 800px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0.1) 100%
+        );
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: absolute;
+        z-index: 2;
+        bottom: 40px;
+        left: 60px;
+        max-width: 900px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+        font-weight: bold;
+        color: white;
+        line-height: 1.3;
+        margin-bottom: 20px;
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #000;
+        padding: 25px;
+        border-radius: 4px;
+      }
+
+      .hero-meta {
+        color: white;
+        font-size: 13px;
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .hero-credit {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.9);
+        margin-top: 10px;
+      }
+
+      /* Main Content */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+      }
+
+      .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .article-card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        cursor: pointer;
+      }
+
+      .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      .article-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+      }
+
+      .article-body {
+        padding: 20px;
+      }
+
+      .article-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .article-excerpt {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .article-meta {
+        font-size: 12px;
+        color: #999;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #2a2a2a;
+        color: #ccc;
+        padding: 0;
+        margin-top: 60px;
+        font-size: 13px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 40px 60px;
+        max-width: 1400px;
+        margin: 0 auto;
+        border-bottom: 1px solid #444;
+      }
+
+      .footer-columns-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+        flex: 1;
+      }
+
+      .footer-column h3 {
+        font-size: 14px;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 15px;
+        display: none;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column li {
+        margin-bottom: 8px;
+      }
+
+      .footer-column a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 13px;
+        transition: color 0.3s;
+      }
+
+      .footer-column a:hover {
+        color: white;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .social-icon {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f0f0;
+        color: #2a2a2a;
+        text-decoration: none;
+        transition:
+          background-color 0.3s,
+          transform 0.3s;
+        font-weight: bold;
+      }
+
+      .social-icon:hover {
+        background-color: #c41e3a;
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 60px;
+        max-width: 1400px;
+        margin: 0 auto;
+        font-size: 12px;
+      }
+
+      .footer-bottom-links a {
+        color: #ccc;
+        text-decoration: none;
+        margin: 0 15px;
+        transition: color 0.3s;
+      }
+
+      .footer-bottom-links a:hover {
+        color: white;
+      }
+
+      footer a {
+        color: #ccc;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: white;
+      }
+
+      /* Newsletter Section */
+      .newsletter-section {
+        background-color: #f5f5f5;
+        padding: 40px;
+        margin-bottom: 40px;
+        border-radius: 8px;
+      }
+
+      .newsletter-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .newsletter-text {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        max-width: 600px;
+      }
+
+      .newsletter-button {
+        background-color: #1e3a8a;
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .newsletter-button:hover {
+        background-color: #1e40af;
+      }
+
+      .newsletter-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #999;
+        flex-shrink: 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .author-info h4 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin: 0;
+      }
+
+      .author-info p {
+        font-size: 12px;
+        color: #999;
+        margin: 0;
+      }
+
+      /* Read More Section */
+      .read-more-section {
+        margin-bottom: 40px;
+      }
+
+      .section-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .articles-carousel {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .carousel-item {
+        background: white;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: box-shadow 0.3s;
+      }
+
+      .carousel-item:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .carousel-image {
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+      }
+
+      .carousel-item:nth-child(1) .carousel-image {
+        background-image: url("refer1.avif");
+      }
+
+      .carousel-item:nth-child(2) .carousel-image {
+        background-image: url("rever2.avif");
+      }
+
+      .carousel-item:nth-child(3) .carousel-image {
+        background-image: url("refer3.avif");
+      }
+
+      .carousel-item:nth-child(4) .carousel-image {
+        background-image: url("refer4.avif");
+      }
+
+      .carousel-content {
+        padding: 15px;
+      }
+
+      .carousel-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #333;
+        line-height: 1.4;
+      }
+
+      /* Comments Section */
+      .comments-wrapper {
+        background-color: #f9f9f9;
+        width: 100%;
+        padding: 40px 0;
+        margin-bottom: 0;
+      }
+
+      .comments-section {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+      }
+
+      .comments-section .comments-header {
+        padding: 0 0 20px 0;
+      }
+
+      .comments-section .comments-notice {
+        margin-bottom: 20px;
+      }
+
+      .comments-section .show-comments-button {
+        margin: 20px auto;
+      }
+
+      .comments-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .comments-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .comments-filters {
+        display: flex;
+        gap: 10px;
+      }
+
+      .filter-link {
+        font-size: 12px;
+        padding: 5px 10px;
+        background-color: #e5e5e5;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.3s;
+      }
+
+      .filter-link:hover {
+        background-color: #d5d5d5;
+      }
+
+      .comments-notice {
+        background-color: #f0f0f0;
+        border-left: 4px solid #999;
+        padding: 15px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        color: #666;
+      }
+
+      .show-comments-button {
+        display: block;
+        margin: 20px auto;
+        background-color: #0b7285;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+
+      .show-comments-button:hover {
+        background-color: #0a5f72;
+      }
+
+      /* Footer Info Section */
+      .footer-info-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+        padding: 20px 0;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .info-column h3 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .info-column p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .info-column a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      .info-column a:hover {
+        text-decoration: underline;
+      }
+
+      .register-button {
+        background-color: #e5e5e5;
+        color: #333;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+      }
+
+      .register-button:hover {
+        background-color: #d5d5d5;
+      }
+
+      @media (max-width: 1024px) {
+        .articles-carousel {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-info-section {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .articles-carousel {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Article Section */
+      .article-full-wrapper {
+        background-color: #fff;
+        width: 100%;
+        padding: 40px 0;
+      }
+
+      .article-full-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 40px;
+        padding: 0 40px;
+      }
+
+      .article-main {
+        line-height: 1.8;
+        color: #333;
+        position: relative;
+      }
+
+      .article-actions {
+        position: absolute;
+        left: -80px;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .action-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+        font-size: 18px;
+      }
+
+      .action-icon:hover {
+        transform: scale(1.15);
+        opacity: 0.9;
+      }
+
+      .action-icon.share {
+        background-color: #000;
+        color: white;
+      }
+
+      .action-icon.print {
+        background-color: #999;
+        color: white;
+      }
+
+      .article-main h2 {
+        font-size: 22px;
+        font-weight: bold;
+        margin: 30px 0 15px 0;
+        color: #333;
+      }
+
+      .article-main p {
+        font-size: 16px;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .article-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .authors-section {
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 20px 0;
+      }
+
+      .authors-section h3 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .author-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .author-avatar-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ddd;
+        flex-shrink: 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .author-1-img {
+        background-image: url("author1.jpg");
+      }
+
+      .author-2-img {
+        background-image: url("author2.jpg");
+      }
+
+      .monica-img {
+        background-image: url("editora.jpg");
+      }
+
+      .author-info-text {
+        flex: 1;
+      }
+
+      .author-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: #0066cc;
+        text-decoration: none;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .author-name:hover {
+        text-decoration: underline;
+      }
+
+      .author-affiliation {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.4;
+      }
+
+      .transparency-section {
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 20px;
+      }
+
+      .transparency-section h3 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .transparency-text {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .partners-section {
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 20px;
+      }
+
+      .partners-section h3 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .partners-link {
+        font-size: 12px;
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      .partners-link:hover {
+        text-decoration: underline;
+      }
+
+      .doi-section {
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 20px;
+      }
+
+      .doi-section h3 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .doi-link {
+        font-size: 12px;
+        color: #0066cc;
+        text-decoration: none;
+        word-break: break-all;
+      }
+
+      .creative-commons-section {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .cc-logo {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .creative-commons-section h3 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .creative-commons-text {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .republish-button {
+        background-color: #555;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        width: 100%;
+        transition: background-color 0.3s;
+      }
+
+      .republish-button:hover {
+        background-color: #444;
+      }
+
+      @media (max-width: 1024px) {
+        .article-full-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .article-sidebar {
+          order: -1;
+        }
+      }
+
+      /* Tags Section */
+      .tags-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px 40px;
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .tags-icon {
+        font-size: 18px;
+        color: #999;
+        flex-shrink: 0;
+      }
+
+      .tag {
+        background-color: #f0f0f0;
+        color: #666;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 13px;
+        text-decoration: none;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+        display: inline-block;
+      }
+
+      .tag:hover {
+        background-color: #e0e0e0;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <!-- Header Top -->
+      <div class="header-top">
+        <div class="header-top-left">
+          <span class="home-icon"
+            ><iconify-icon icon="ic:baseline-home"></iconify-icon
+          ></span>
+          <button class="language-selector">
+            Edição: <span class="brasil-text">Brasil</span> ▼
+          </button>
+          <span class="language-badge">Boletins Informativos</span>
+        </div>
+
+        <div class="header-right">
+          <a class="header-link" href="#">Tome-se um autor</a>
+          <a class="header-link" href="#">Cadastre-se como leitor</a>
+          <a class="header-link" href="#">Entrar</a>
+        </div>
+      </div>
+
+      <!-- Header Bottom -->
+      <div class="header-bottom">
+        <div class="logo-section">
+          <div class="logo">THE C<span class="logo-red">O</span>NVERSATION</div>
+          <div class="tagline-small">Rigor acadêmico, estilo jornalístico</div>
+        </div>
+
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-box"
+            placeholder="Análises, pesquisas, acadêmicos..."
+          />
+          <span class="search-icon"
+            ><iconify-icon icon="ic:sharp-search"></iconify-icon
+          ></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          How Artificial Intelligence Is Helping Us Explore Space
+        </h1>
+        <div class="hero-meta">
+          <span>Publicado: 28 janeiro 2021 11:32 -03</span>
+        </div>
+        <div class="hero-credit">
+          Various types of astronaut assistant are in development. Michal
+          Bednarek/shutterstock.com
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Full Section -->
+    <div class="article-full-wrapper">
+      <div class="article-full-content">
+        <div class="article-main">
+          <div class="article-actions">
+            <button class="action-icon share" title="Compartilhar">
+              <iconify-icon icon="mdi-light:share-variant"></iconify-icon>
+            </button>
+            <button class="action-icon print" title="Imprimir">
+              <iconify-icon icon="mdi-light:printer"></iconify-icon>
+            </button>
+          </div>
+          <p>
+            Artificial intelligence (AI) is changing the way humans explore
+            space. In recent years, scientists have developed powerful AI
+            systems that have helped NASA and other space agencies solve complex
+            problems faster than ever before.
+          </p>
+
+          <h2>1. AI as an assistant in space missions</h2>
+          <p>
+            One important use of AI in space is to assist astronauts during
+            long-duration missions. In 2019, NASA unveiled CIMON—an AI assistant
+            that operated aboard the International Space Station. CIMON answered
+            questions, detected spacecraft problems, and helped astronauts
+            complete experiments. Scientists designed it to reduce stress and
+            increase safety during missions far from Earth.
+          </p>
+
+          <h2>2. AI for navigation and data analysis</h2>
+          <p>
+            AI has also transformed how spacecraft navigate and how scientists
+            analyze data. In 2018, a team from NASA and Intel used AI to help
+            rovers navigate the surface of the Moon and Mars without human
+            control. Additionally, Earth observation satellites collect enormous
+            amounts of data daily. AI processes this information quickly and
+            accurately—a task that would take human scientists months to
+            complete manually.
+          </p>
+
+          <h2>3. AI for Space Safety and Debris Monitoring</h2>
+          <p>
+            Another important application of AI is protecting spacecraft from
+            space debris. Thousands of pieces of old satellites and rocket
+            fragments orbit Earth at high speeds, creating serious risks for
+            missions. AI systems can predict potential collisions, monitor
+            hazardous objects, and calculate safer routes for satellites and
+            spacecraft. This technology helps space agencies avoid accidents and
+            protect astronauts and equipment in orbit.
+          </p>
+
+          <p>
+            As space missions become longer and more complex, AI will play an
+            increasingly important role. The future of space exploration is not
+            just human—it's collaboration between humans and machines.
+          </p>
+
+          <!-- Tags Section -->
+          <div class="tags-container" style="margin-top: 25px">
+            <span class="tags-icon"
+              ><iconify-icon icon="mdi-light:tag"></iconify-icon
+            ></span>
+            <a href="#" class="tag">Space</a>
+            <a href="#" class="tag">Artificial intelligence (AI)</a>
+            <a href="#" class="tag">Astronauts</a>
+            <a href="#" class="tag">Space exploration</a>
+            <a href="#" class="tag">Satellite imaging</a>
+          </div>
+        </div>
+
+        <div class="article-sidebar">
+          <!-- Authors Section -->
+          <div class="authors-section">
+            <h3>Autores</h3>
+            <div class="author-item">
+              <div class="author-avatar-img author-1-img"></div>
+              <div class="author-info-text">
+                <a href="#" class="author-name">Deep Bandivadekar</a>
+                <div class="author-affiliation">
+                  Candidato a doutorado no Centro de Excelência Aeroespacial da
+                  Universidade de Strathclyde.
+                </div>
+              </div>
+            </div>
+            <div class="author-item">
+              <div class="author-avatar-img author-2-img"></div>
+              <div class="author-info-text">
+                <a href="#" class="author-name">Audrey Berquand</a>
+                <div class="author-affiliation">
+                  Candidato a doutorado em Engenharia Mecânica e Aeroespacial,
+                  Universidade de Strathclyde
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transparency Declaration -->
+          <div class="transparency-section">
+            <h3>Declaração de transparência</h3>
+            <p class="transparency-text">
+              Audrey Berquand recebe financiamento da ESA e da Universidade de
+              Strathclyde.
+            </p>
+            <p class="transparency-text" style="margin-top: 10px">
+              Deep Bandivadekar não presta consultoria, trabalha, possui ações
+              ou recebe financiamento de qualquer empresa ou organização que
+              pudessa se beneficiar com a publicação deste artigo e não revelou
+              nenhum vínculo relevante além de seu cargo acadêmico.
+            </p>
+          </div>
+
+          <!-- Partners Section -->
+          <div class="partners-section">
+            <h3>Parceiros</h3>
+            <a href="#" class="partners-link">Ver todos os parceiros</a>
+          </div>
+
+          <!-- DOI Section -->
+          <div class="doi-section">
+            <h3>DOI</h3>
+            <a href="#" class="doi-link"
+              >https://doi.org/10.64628/AS.447g7xgfv</a
+            >
+          </div>
+
+          <!-- Creative Commons Section -->
+          <div class="creative-commons-section">
+            <div class="cc-logo">⊘ ◎ creative commons</div>
+            <h3>Acreditamos no livre fluxo de informações</h3>
+            <p class="creative-commons-text">
+              Nossos artigos estão sob licença Creative Commons. Republique-os
+              gratuitamente, seja em veículos online ou impressos.
+            </p>
+            <button class="republish-button">Republicar este artigo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="container">
+      <div class="newsletter-section">
+        <h3 class="newsletter-title">Conheça a nossa newsletter semanal</h3>
+        <p class="newsletter-text">
+          Ela ajuda você a se aprofundar nas pesquisas mais relevantes da
+          Ciência brasileira e mundial. Informação com conhecimento. Opinião com
+          embasamento. Rigor científico, com estilo jornalístico.
+        </p>
+        <button class="newsletter-button">Assinar</button>
+        <div class="newsletter-author">
+          <div class="author-avatar monica-img"></div>
+          <div class="author-info">
+            <h4>Monica Tarantino</h4>
+            <p>Editora</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Read More Articles -->
+      <div class="read-more-section">
+        <h3 class="section-title">
+          Leia mais artigos do The Conversation Brasil
+        </h3>
+        <div class="articles-carousel">
+          <div class="carousel-item">
+            <div class="carousel-image"></div>
+            <div class="carousel-content">
+              <p class="carousel-title">
+                Três cientistas também especialistas em isolamento: o que eles
+                podem
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-image"></div>
+            <div class="carousel-content">
+              <p class="carousel-title">
+                Seis missões espaciais para aguardar ansiosamente em 2021
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-image"></div>
+            <div class="carousel-content">
+              <p class="carousel-title">
+                Em breve temos dez vezes mais satélites em órbita - veja o que
+                isso significa
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-image"></div>
+            <div class="carousel-content">
+              <p class="carousel-title">
+                O espaço poderá em breve se tornar uma zona de guerra - veja
+                como isso funcionaria
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comments Section (Full Width) -->
+    <div class="comments-wrapper">
+      <div class="container">
+        <div class="comments-section">
+          <div class="comments-header">
+            <h3 class="comments-title">5 Comentários</h3>
+            <div class="comments-filters">
+              <button class="filter-link">Mais antigo</button>
+              <button class="filter-link">Mais recente</button>
+            </div>
+          </div>
+          <div class="comments-notice">
+            Os comentários são abertos em artigos selecionados e devem estar em
+            conformidade com as normas da comunidade.
+          </div>
+          <button class="show-comments-button">
+            Mostrar todos os comentários
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Info Section -->
+    <div class="container">
+      <div class="footer-info-section">
+        <div class="info-column">
+          <h3>Nosso público</h3>
+          <p>
+            The Conversation tem uma audiência mensal de 18 milhões de leitores
+            e um impacto de 42 milhões através de
+            <a href="#">Republicações</a> sob licença Creative Commons.
+          </p>
+        </div>
+        <div class="info-column">
+          <h3>Quer escrever?</h3>
+          <p>
+            Escreva um artigo e junte-se a uma comunidade crescente de mais de
+            225 600 acadêmicos e pesquisadores de 5 520 instituições.
+          </p>
+          <button class="register-button">Registre-se agora</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-columns-wrapper">
+          <div class="footer-column">
+            <ul>
+              <li><a href="#">Diretrizes Editoriais Globais</a></li>
+              <li><a href="#">Normas da comunidade</a></li>
+              <li><a href="#">Guia de republicação</a></li>
+              <li><a href="#">Alimenta</a></li>
+              <li><a href="#">Assine nossa newsletter</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <ul>
+              <li><a href="#">Quem somos</a></li>
+              <li><a href="#">Carta editorial</a></li>
+              <li><a href="#">Nossa equipe</a></li>
+              <li><a href="#">Parceiros</a></li>
+              <li><a href="#">Recursos para outros veículos</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <ul>
+              <li><a href="#">Entre em contato</a></li>
+              <li><a href="#">Sugira um artigo</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-social">
+          <a href="#" class="social-icon" title="Facebook">f</a>
+          <a href="#" class="social-icon" title="Instagram">📷</a>
+          <a href="#" class="social-icon" title="Twitter">𝕏</a>
+          <a href="#" class="social-icon" title="LinkedIn">in</a>
+          <a href="#" class="social-icon" title="Email">✉</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-links">
+          <a href="#">Política de privacidade</a>
+          <a href="#">Termos e condições</a>
+          <a href="#">Correções</a>
+          <a href="#">Preferências de consentimento</a>
+        </div>
+        <div style="color: #999">
+          Copyright © 2010–2026, The Conversation Media Group Ltd
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
