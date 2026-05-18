@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Conversation - Rigor acadêmico, estilo jornalístico</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
       }
 
       body {
@@ -88,6 +93,18 @@
 
       .logo-red {
         color: #c41e3a;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.2em;
+        height: 1.2em;
+        transform: translateY(9px);
+      }
+
+      .logo-red img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
 
       .language-badge {
@@ -106,10 +123,37 @@
         border-radius: 4px;
         cursor: pointer;
         font-size: 12px;
-        color: #666;
+        color: transparent;
+        font-family: inherit;
+        position: relative;
+        width: 150px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+
+      .language-selector::-ms-expand {
+        display: none;
+      }
+
+      .language-selector-display {
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        font-size: 12px;
         display: flex;
-        align-items: center;
-        gap: 5px;
+        gap: 4px;
+      }
+
+      .language-selector-display .language-label {
+        color: #666;
+      }
+
+      .language-selector-display .language-name {
+        color: #ff6600;
+        font-weight: 600;
       }
 
       .brasil-text {
@@ -306,6 +350,9 @@
         padding: 0;
         margin-top: 60px;
         font-size: 13px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       .footer-content {
@@ -1007,10 +1054,17 @@
           <span class="home-icon"
             ><iconify-icon icon="ic:baseline-home"></iconify-icon
           ></span>
-          <button class="language-selector">
-            Edição: <span class="brasil-text">Brasil</span> ▼
-          </button>
-          <span class="language-badge">Boletins Informativos</span>
+          <div style="position: relative; display: inline-block">
+            <div class="language-selector-display">
+              <span class="language-label">Edição: </span>
+              <span class="language-name" id="languageName">Brasil</span>
+            </div>
+            <select class="language-selector" id="languageSelect">
+              <option value="brasil">Brasil</option>
+              <option value="andre">Andre Farias</option>
+            </select>
+          </div>
+          <span class="language-badge">Newsletters</span>
         </div>
 
         <div class="header-right">
@@ -1023,7 +1077,7 @@
       <!-- Header Bottom -->
       <div class="header-bottom">
         <div class="logo-section">
-          <div class="logo">THE C<span class="logo-red">O</span>NVERSATION</div>
+          <div class="logo">THE C<span class="logo-red"><img src="favicon.png" alt="O"></span>NVERSATION</div>
           <div class="tagline-small">Rigor acadêmico, estilo jornalístico</div>
         </div>
 
@@ -1130,7 +1184,7 @@
         <div class="article-sidebar">
           <!-- Authors Section -->
           <div class="authors-section">
-            <h3>Autores</h3>
+            <h3>Autor</h3>
             <div class="author-item">
               <div class="author-avatar-img author-1-img"></div>
               <div class="author-info-text">
@@ -1140,7 +1194,7 @@
                   Universidade de Strathclyde.
                 </div>
               </div>
-            </div>
+            <!-- </div>
             <div class="author-item">
               <div class="author-avatar-img author-2-img"></div>
               <div class="author-info-text">
@@ -1150,7 +1204,7 @@
                   Universidade de Strathclyde
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Transparency Declaration -->
@@ -1184,7 +1238,7 @@
 
           <!-- Creative Commons Section -->
           <div class="creative-commons-section">
-            <div class="cc-logo">⊘ ◎ creative commons</div>
+            <div class="cc-logo"> ◎ creative commons</div>
             <h3>Acreditamos no livre fluxo de informações</h3>
             <p class="creative-commons-text">
               Nossos artigos estão sob licença Creative Commons. Republique-os
@@ -1355,5 +1409,15 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const languageSelect = document.getElementById("languageSelect");
+      const languageName = document.getElementById("languageName");
+
+      languageSelect.addEventListener("change", function () {
+        const selectedText = this.options[this.selectedIndex].text;
+        languageName.textContent = selectedText;
+      });
+    </script>
   </body>
 </html>
